@@ -1,0 +1,9 @@
+C:\Users\julio\source\repos\Prova_Code7\src\Code7.WeChip.Domain\bin\Debug\netstandard2.0\Code7.WeChip.Domain.deps.json
+C:\Users\julio\source\repos\Prova_Code7\src\Code7.WeChip.Domain\bin\Debug\netstandard2.0\Code7.WeChip.Domain.dll
+C:\Users\julio\source\repos\Prova_Code7\src\Code7.WeChip.Domain\bin\Debug\netstandard2.0\Code7.WeChip.Domain.pdb
+C:\Users\julio\source\repos\Prova_Code7\src\Code7.WeChip.Domain\obj\Debug\netstandard2.0\Code7.WeChip.Domain.csprojAssemblyReference.cache
+C:\Users\julio\source\repos\Prova_Code7\src\Code7.WeChip.Domain\obj\Debug\netstandard2.0\Code7.WeChip.Domain.AssemblyInfoInputs.cache
+C:\Users\julio\source\repos\Prova_Code7\src\Code7.WeChip.Domain\obj\Debug\netstandard2.0\Code7.WeChip.Domain.AssemblyInfo.cs
+C:\Users\julio\source\repos\Prova_Code7\src\Code7.WeChip.Domain\obj\Debug\netstandard2.0\Code7.WeChip.Domain.csproj.CoreCompileInputs.cache
+C:\Users\julio\source\repos\Prova_Code7\src\Code7.WeChip.Domain\obj\Debug\netstandard2.0\Code7.WeChip.Domain.dll
+C:\Users\julio\source\repos\Prova_Code7\src\Code7.WeChip.Domain\obj\Debug\netstandard2.0\Code7.WeChip.Domain.pdb

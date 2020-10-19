@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.0" />
+    <PackageReference Include="System.Data.OleDb" Version="4.7.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Code7.WeChip.Domain\Code7.WeChip.Domain.csproj" />
+    <ProjectReference Include="..\Code7.WeChip.Infra\Code7.WeChip.Infra.csproj" />
+    <ProjectReference Include="..\Code7.WeChip.SharedKernel\Code7.WeChip.SharedKernel.csproj" />
+  </ItemGroup>
+
+</Project>

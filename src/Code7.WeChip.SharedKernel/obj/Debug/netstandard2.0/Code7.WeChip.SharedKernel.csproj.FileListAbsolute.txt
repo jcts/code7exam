@@ -1,0 +1,16 @@
+C:\Users\julio\source\repos\Prova_Code7\src\Code7.WeChip.SharedKernel\bin\Debug\netstandard2.0\Code7.WeChip.SharedKernel.deps.json
+C:\Users\julio\source\repos\Prova_Code7\src\Code7.WeChip.SharedKernel\bin\Debug\netstandard2.0\Code7.WeChip.SharedKernel.dll
+C:\Users\julio\source\repos\Prova_Code7\src\Code7.WeChip.SharedKernel\bin\Debug\netstandard2.0\Code7.WeChip.SharedKernel.pdb
+C:\Users\julio\source\repos\Prova_Code7\src\Code7.WeChip.SharedKernel\bin\Debug\netstandard2.0\System.ComponentModel.DataAnnotations.dll
+C:\Users\julio\source\repos\Prova_Code7\src\Code7.WeChip.SharedKernel\bin\Debug\netstandard2.0\System.Configuration.dll
+C:\Users\julio\source\repos\Prova_Code7\src\Code7.WeChip.SharedKernel\bin\Debug\netstandard2.0\System.Security.dll
+C:\Users\julio\source\repos\Prova_Code7\src\Code7.WeChip.SharedKernel\bin\Debug\netstandard2.0\System.ComponentModel.DataAnnotations.xml
+C:\Users\julio\source\repos\Prova_Code7\src\Code7.WeChip.SharedKernel\bin\Debug\netstandard2.0\System.Configuration.xml
+C:\Users\julio\source\repos\Prova_Code7\src\Code7.WeChip.SharedKernel\bin\Debug\netstandard2.0\System.Security.xml
+C:\Users\julio\source\repos\Prova_Code7\src\Code7.WeChip.SharedKernel\obj\Debug\netstandard2.0\Code7.WeChip.SharedKernel.csprojAssemblyReference.cache
+C:\Users\julio\source\repos\Prova_Code7\src\Code7.WeChip.SharedKernel\obj\Debug\netstandard2.0\Code7.WeChip.SharedKernel.AssemblyInfoInputs.cache
+C:\Users\julio\source\repos\Prova_Code7\src\Code7.WeChip.SharedKernel\obj\Debug\netstandard2.0\Code7.WeChip.SharedKernel.AssemblyInfo.cs
+C:\Users\julio\source\repos\Prova_Code7\src\Code7.WeChip.SharedKernel\obj\Debug\netstandard2.0\Code7.WeChip.SharedKernel.csproj.CoreCompileInputs.cache
+C:\Users\julio\source\repos\Prova_Code7\src\Code7.WeChip.SharedKernel\obj\Debug\netstandard2.0\Code7.WeChip.SharedKernel.csproj.CopyComplete
+C:\Users\julio\source\repos\Prova_Code7\src\Code7.WeChip.SharedKernel\obj\Debug\netstandard2.0\Code7.WeChip.SharedKernel.dll
+C:\Users\julio\source\repos\Prova_Code7\src\Code7.WeChip.SharedKernel\obj\Debug\netstandard2.0\Code7.WeChip.SharedKernel.pdb

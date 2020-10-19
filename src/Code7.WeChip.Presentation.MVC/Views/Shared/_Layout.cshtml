@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css" type="text/css" />
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="collapse navbar-collapse" id="navbarColor02">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    @Html.ActionLink("Cadastrar Cliente", "NewCustomer", "Home", new { @class = "nav-link" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("Cadastrar Oferta", "NewOffer", "Home", new { @class = "nav-link" })
+                </li>
+            </ul>
+        </div>
+
+        <i class="fa fa-spinner fa-spin" style="color: whitesmoke; display: none;"></i>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - WeChip</p>
+            
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="https://unpkg.com/currency.js@1.2.2/dist/currency.min.js"></script>
+
+    <script>
+
+        var REAL = value => currency(value, { symbol: 'R$', decimal: ',', separator: '.', formatWithSymbol: true });
+
+        $("#register-customer").on('click', (e) => {
+
+            $(".fa-spin").fadeIn();
+
+            let data = {
+                Name: $("#customername").val(),
+                CardId: $("#cardid").val(),
+                Phone: {
+                    Ddd: $("#phonecode").val(),
+                    PhoneNumber: $("#phonenumber").val()
+                },
+                Address: {
+
+                    ZipCode: $("#phonenumber").val(),
+                    Street: $("#street").val(),
+                    Number: $("#housenumber").val(),
+                    Neighborhood: $("#neighborhood").val(),
+                    City: $("#city").val(),
+                    State: $("#state").val(),
+                    MoreInfo: $("#moreinfo").val()
+
+                }
+            };
+
+            $.post('/Home/RegisterCustomer', { customer: data }, (r) => {
+
+                $(".fa-spin").fadeOut();
+
+            }).fail((err) => {
+
+
+            });
+        });
+
+        $("#searchcustomer").on('click', (e) => {
+
+            $(".fa-spin").fadeIn();
+
+            $("#container-result-search").fadeOut();
+
+            let param = $("#paramsearch").val();
+
+            $.get('/Home/SearchCustomer', { param: param }, (r) => {
+
+                if (r.customers == null) {
+
+                    $("#customername").text("");
+                    $("#cardid").text("");
+                    $("#customerphone").text("");
+
+                    $("#street").text("");
+                    $("#neigh").text("");
+                    $("#numberaddress").text("");
+                    $("#city").text("");
+                    $("#state").text("");
+                    $("#zipcode").text("");
+                    $("#moreinfo").text("");
+                    $("#resultsfound").text("0 Resultados Encontrados");
+                    $("#container-result-search").fadeIn();
+                    return;
+                }
+                debugger;
+                [].forEach.call(r.customers, (customer) => {
+
+                    let option = '<input type="radio" name="offer" value="' + customer.CardId + '" onclick="loadProducts(this)" > ';
+
+                    $('#table-result-search-customer').DataTable().row.add({ 'cardid': customer.CardId, 'customername': customer.Name, selectcustomer: option }).draw();
+
+
+
+                    $("#resultsfound").text(r.customers.length + " Resultados Encontrados");
+                    $("#container-result-search").fadeIn();
+                });
+
+                $(".fa-spin").fadeOut();
+
+            }).fail(() => {
+
+            });
+        });
+
+        function loadProducts(e) {
+
+            $(".fa-spin").fadeIn();
+
+            $.get("/Home/ListProducts", null, (r) => {
+
+                $('#table-result-products').DataTable().rows().remove().draw();
+
+                [].forEach.call(r.products, (product) => {
+
+                    let option = '<input class="offers-checkbox" type="checkbox" value="' + product.Code + '" data-price="' + REAL(product.Price).format() + '" onclick="reloadvalues();">';
+
+                    $('#table-result-products').DataTable().row.add({ 'description': product.Description, 'price': REAL(product.Price).format(), 'type': product.Type.Description, 'code': product.Code, 'offer': option }).draw();
+                });
+
+                $("#container-customer-address").fadeOut(500, () => {
+
+                    $.get("/Home/SearchAddress", { cardId: e.value }, (address) => {
+
+                        let inputs = document.getElementsByClassName("input-address");
+
+                        [].forEach.call(inputs, (i) => {
+
+                            i.disabled = true;
+                        });
+
+                        $("#street").val(address.Address.Street);
+                        $("#neighborhood").val(address.Address.Neighborhood);
+                        $("#numberaddress").val(address.Address.Number);
+                        $("#city").val(address.Address.City);
+                        $("#state").val(address.Address.State);
+                        $("#zipcode").val(address.Address.ZipCode);
+                        $("#moreinfo").val(address.Address.MoreInfo);
+
+                        $("#container-customer-address").fadeIn();
+
+                    });
+
+
+                });
+
+                $(".fa-spin").fadeOut();
+
+            }).fail((err) => {
+
+            }).done();
+        }
+
+        function reloadvalues() {
+
+            let products = document.querySelectorAll("input[class='offers-checkbox']:checked");
+
+            let ammount = REAL("R$ 0,00").value.toLocaleString('pt-Br', { style: 'currency', currency: 'BRL' });
+
+            [].forEach.call(products, (product) => {
+
+                ammount = REAL(ammount).add(REAL(product.dataset.price)).value.toLocaleString('pt-Br', { style: 'currency', currency: 'BRL' });
+
+            });
+
+
+            let inputs = document.getElementsByClassName("input-address");
+
+            if (REAL(ammount).value === 0) {
+
+                [].forEach.call(inputs, (i) => {
+
+                    i.disabled = true;
+                });
+
+            } else {
+                [].forEach.call(inputs, (i) => {
+
+                    i.disabled = false;
+                });
+            }
+
+            $("#input05").val(REAL(ammount).format());
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,261 @@
+﻿<style>
+
+    .newoffer h6 {
+        margin: unset;
+    }
+</style>
+
+
+<div class="container-fluid newoffer">
+    <fieldset class="col-md-12">
+        <legend>Dados da Oferta</legend>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label for="paramsearch">Pesquisar Cliente</label>
+                    <div class=" input-group col-sm-12" style="padding-left: unset;">
+                        <input type="text" class="form-control" id="paramsearch" placeholder="Pesquisar Cliente" aria-label="Pesquisar Cliente" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary btn-primary" type="button" id="searchcustomer"><i class="fa fa-search" style="color: whitesmoke;"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <br />
+
+                <div class="row">
+                    <div class="form-group col-md-6" id="container-result-search" style="display: none;">
+                        <div class="card">
+                            <div class="card-header">
+                                Resultado da Pesquisa
+                            </div>
+
+                            <div class="card-body">
+
+                                <table id="table-result-search-customer" class="table table-striped table-bordered" style="width:100%">
+
+                                    <thead>
+                                        <tr>
+                                            <th>Cpf</th>
+                                            <th>Nome</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+
+                                </table>
+
+
+                            </div>
+
+                            <div class="card-footer">
+                                <span id="resultsfound"></span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6" id="container-customer-address" style="display: none;">
+                        <div class="card">
+                            <div class="card-header">
+                                Endereço Cadastrado
+                            </div>
+
+                            <div class="card-body">
+                                <div class="col-sm-12">
+                                    <div class="form-group col-md-12">
+                                        <label for="state">Estado</label>
+                                        <input type="text" class="form-control input-address" id="state" placeholder="Estado" disabled>
+                                    </div>
+
+                                    <div class="form-group col-md-12">
+                                        <label for="city">Cidade</label>
+                                        <input type="text" class="form-control input-address" id="city" placeholder="Cidade" disabled>
+                                    </div>
+
+                                    <div class="form-group col-md-12">
+                                        <label for="neighborhood">Bairro</label>
+                                        <input type="text" class="form-control input-address" id="neighborhood" placeholder="Bairro" disabled>
+                                    </div>
+
+                                    <div class="form-group col-md-12">
+                                        <label for="street">Rua</label>
+                                        <input type="text" class="form-control input-address" id="street" placeholder="Rua" disabled>
+                                    </div>
+
+                                    <div class="form-group col-md-12">
+                                        <label for="housenumber">Número</label>
+                                        <input type="text" class="form-control input-address" id="housenumber" placeholder="Número" disabled>
+                                    </div>
+
+                                    <div class="form-group col-md-12">
+                                        <label for="moreinfo">Complemento</label>
+                                        <input type="text" class="form-control input-address" id="moreinfo" placeholder="Complemento" disabled>
+                                    </div>
+
+                                    <div class="form-group col-md-12">
+                                        <label for="zipcode">CEP</label>
+                                        <input type="text" class="form-control input-address" id="zipcode" placeholder="CEP" disabled>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-footer">
+                                <span id="resultsfound"></span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+              
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+
+                <label for="table-result-products" wfd-id="15">Produtos para Oferta</label>
+                <table id="table-result-products" class="table table-striped table-bordered" style="width:100%">
+
+                    <thead>
+                        <tr>
+                            <th>Descrição</th>
+                            <th>Preço</th>
+                            <th>Tipo</th>
+                            <th>Código</th>
+                            <th>Ofertar</th>
+                        </tr>
+                    </thead>
+
+                </table>
+
+                <div class="form-group col-md-12">
+                    <label for="input05">Crédito</label>
+                    <input type="text" class="form-control" id="input05" placeholder="R$ 0,00" disabled>
+                </div>
+                <button type="button" class="btn btn-primary btn-sm" id="registeroffer" style="float: right; margin-right: 15px;">Ofertar</button>
+            </div>
+        </div>
+
+    </fieldset>
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jquery")
+
+    <script src="https://kit.fontawesome.com/c7030a84b2.js" crossorigin="anonymous"></script>
+    <script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $("#table-result-search-customer").DataTable({
+            "ordering": false,
+            "bInfo": false,
+            "oLanguage": {
+                "sStripClasses": "",
+                "sSearch": "",
+                "sEmptyTable": "Nenhum item encontrado",
+                "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+                "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+                "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+                "sInfoPostFix": "",
+                "sInfoThousands": ".",
+                "sLengthMenu": "_MENU_ resultados por página",
+                "sLoadingRecords": "Carregando...",
+                "sProcessing": "Processando...",
+                "sZeroRecords": "Nenhum item adicionado",
+                "oPaginate": {
+                    "sNext": "Próximo",
+                    "sPrevious": "Anterior",
+                    "sFirst": "Primeiro",
+                    "sLast": "Último"
+                },
+                "oAria": {
+                    "sSortAscending": ": Ordenar colunas de forma ascendente",
+                    "sSortDescending": ": Ordenar colunas de forma descendente"
+                }
+            },
+            "searching": false,
+            "bLengthChange": false,
+            "iDisplayLength": 14,
+            "autoWidth": false,
+            "columns": [
+
+                { mData: 'cardid' },
+                { mData: 'customername' },
+                { mData: 'selectcustomer' }
+            ]
+        });
+        
+        $("#table-result-products").DataTable({
+            "ordering": false,
+            "bInfo": false,
+            "oLanguage": {
+                "sStripClasses": "",
+                "sSearch": "",
+                "sEmptyTable": "Nenhum item encontrado",
+                "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+                "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+                "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+                "sInfoPostFix": "",
+                "sInfoThousands": ".",
+                "sLengthMenu": "_MENU_ resultados por página",
+                "sLoadingRecords": "Carregando...",
+                "sProcessing": "Processando...",
+                "sZeroRecords": "Nenhum item adicionado",
+                "oPaginate": {
+                    "sNext": "Próximo",
+                    "sPrevious": "Anterior",
+                    "sFirst": "Primeiro",
+                    "sLast": "Último"
+                },
+                "oAria": {
+                    "sSortAscending": ": Ordenar colunas de forma ascendente",
+                    "sSortDescending": ": Ordenar colunas de forma descendente"
+                }
+            },
+            "searching": false,
+            "bLengthChange": false,
+            "iDisplayLength": 14,
+            "autoWidth": false,
+            "columns": [
+
+                { mData: 'description' },
+                { mData: 'price' },
+                { mData: 'type' },
+                { mData: 'code' },
+                { mData: 'offer' }
+            ]
+        });
+
+        
+        $('#registeroffer').on('click', (e) => {
+
+            //MakeOffer(string cardId, decimal value)
+
+            $(".fa-spin").fadeInf();
+            debugger;
+
+            let radiocustomer = document.querySelector("input[type=radio]:checked").value;
+
+            let ammount = document.getElementById('input05');
+
+            $.post('/Home/MakeOffer', { cardId: radiocustomer, value: REAL(ammount.value).value}, () => {
+
+
+                $(".fa-spin").fadeOut();
+
+            }).fail(() => {
+
+            });
+           
+        });
+
+       
+
+    </script>
+
+
+}
+
+
