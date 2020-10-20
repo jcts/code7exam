@@ -1,0 +1,2 @@
+﻿Este projeto faz provê a Inversão de Controle e Injeção de Dependência em todo o projeto, este recurso provê um baixo acoplamento na aplicação
+e alta coesão. Grande parte do projeto está desenvolvido para Interfaces evitando múltiplas instâncias de uma mesma classe.

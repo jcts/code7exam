@@ -7,6 +7,9 @@ using System;
 
 namespace Code7.WeChip.IoC
 {
+    /// <summary>
+    /// Nesta classe faz-se o registro das interfaces e as classes concretas que fazem uso da interface
+    /// </summary>
     public class BootStrapper
     {
 

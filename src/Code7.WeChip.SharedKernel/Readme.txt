@@ -1,0 +1,1 @@
+﻿Este projeto provê todos recursos, como Enums, Models e etc necessário a toda a aplicação, ele é compartilhado com todo projeto que necessite usar um recurso comum a todos.

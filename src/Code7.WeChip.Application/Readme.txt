@@ -1,0 +1,2 @@
+﻿Este projeto é quem faz a "ligação" entre o projeto de Apresentação (web, wpf, console, etc) com o domínio por meio do Mapeamento das Models para as Entidades
+do domínio (DTO), neste projeto é que são implementadas as regas de negócio da apliação.

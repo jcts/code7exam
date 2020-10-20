@@ -1,0 +1,2 @@
+﻿Este projeto contém todas entidades envolvidas no domínio do problema apresentado na prova, usou-se o recurso de ValueObjects para diminiur 
+o efeito de "obsessão por tipos primitivos", por ser uma aplicação simples, o domínio apresenta classes anêmicas.
